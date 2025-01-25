@@ -9,11 +9,11 @@ void print_usage(const char *prog_name) {
     // Print usage format and valid log levels
     printf("Usage: %s <PID> <level>\n", prog_name);
     printf("Levels:\n");
-    printf("  0 - Disable logging (SIGINT)\n");
-    printf("  1 - Error (SIGUSR1)\n");
-    printf("  2 - Warning (SIGUSR2)\n");
-    printf("  3 - Info (SIGTERM)\n");
-    printf("  4 - Debug (SIGHUP)\n");
+    printf("  0 - Disable logging ( SIGTMIN +4 )\n");
+    printf("  1 - Error ( SIGTMIN )\n");
+    printf("  2 - Warning ( SIGTMIN +1 )\n");
+    printf("  3 - Info ( SIGTMIN +2)\n");
+    printf("  4 - Debug ( SIGTMIN +3 )\n");
 }
 
 int main(int argc, char *argv[]) {
