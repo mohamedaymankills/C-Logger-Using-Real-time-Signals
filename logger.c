@@ -17,23 +17,23 @@ int current_log_level = LOG_LEVEL_DISABLED;
 void signal_handler(int sig) {
     // Switch based on the received signal to adjust log level
     switch (sig) {
-        case SIGUSR1: // Signal to set log level to ERROR
+        case 40 : // Signal to set log level to ERROR
             current_log_level = LOG_LEVEL_ERROR;
             printf("Log level set to: ERROR (1)\n");
             break;
-        case SIGUSR2: // Signal to set log level to WARNING
+        case 41 : // Signal to set log level to WARNING
             current_log_level = LOG_LEVEL_WARNING;
             printf("Log level set to: WARNING (2)\n");
             break;
-        case SIGTERM: // Signal to set log level to INFO
+        case 42 : // Signal to set log level to INFO
             current_log_level = LOG_LEVEL_INFO;
             printf("Log level set to: INFO (3)\n");
             break;
-        case SIGHUP: // Signal to set log level to DEBUG
+        case 43 : // Signal to set log level to DEBUG
             current_log_level = LOG_LEVEL_DEBUG;
             printf("Log level set to: DEBUG (4)\n");
             break;
-        case SIGINT: // Signal to disable logging
+        case 44: // Signal to disable logging
             current_log_level = LOG_LEVEL_DISABLED;
             printf("Log level set to: DISABLED (0)\n");
             break;
@@ -83,11 +83,11 @@ void LOG_DEBUG(const char *message) {
 // Main function
 int main() {
     // Register signal handlers for log level changes
-    signal(SIGUSR1, signal_handler); // Handle SIGUSR1 for ERROR level
-    signal(SIGUSR2, signal_handler); // Handle SIGUSR2 for WARNING level
-    signal(SIGTERM, signal_handler); // Handle SIGTERM for INFO level
-    signal(SIGHUP, signal_handler);  // Handle SIGHUP for DEBUG level
-    signal(SIGINT, signal_handler);  // Handle SIGINT to disable logging
+    signal(40, signal_handler); // Handle SIGUSR1 for ERROR level
+    signal(41, signal_handler); // Handle SIGUSR2 for WARNING level
+    signal(42, signal_handler); // Handle SIGTERM for INFO level
+    signal(43, signal_handler);  // Handle SIGHUP for DEBUG level
+    signal(44, signal_handler);  // Handle SIGINT to disable logging
 
     // Print the logger's PID so the user can send signals to it
     printf("Logger started with PID: %d\n", getpid());
@@ -107,4 +107,3 @@ int main() {
 
     return 0; // Program should never reach here
 }
-
