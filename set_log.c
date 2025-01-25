@@ -32,15 +32,15 @@ int main(int argc, char *argv[]) {
 
     // Map the provided log level string or number to the corresponding signal
     if (strcmp(level, "disable") == 0 || strcmp(level, "0") == 0) {
-        signal = SIGINT; // Signal to disable logging
+        signal = 44; // Signal to disable logging
     } else if (strcmp(level, "error") == 0 || strcmp(level, "1") == 0) {
-        signal = SIGUSR1; // Signal for ERROR log level
+        signal = 40 ; // Signal for ERROR log level
     } else if (strcmp(level, "warning") == 0 || strcmp(level, "2") == 0) {
-        signal = SIGUSR2; // Signal for WARNING log level
+        signal = 41; // Signal for WARNING log level
     } else if (strcmp(level, "info") == 0 || strcmp(level, "3") == 0) {
-        signal = SIGTERM; // Signal for INFO log level
+        signal = 42; // Signal for INFO log level
     } else if (strcmp(level, "debug") == 0 || strcmp(level, "4") == 0) {
-        signal = SIGHUP; // Signal for DEBUG log level
+        signal = 43; // Signal for DEBUG log level
     } else {
         // If an invalid log level is provided, print an error and usage instructions
         fprintf(stderr, "Invalid log level: %s\n", level);
@@ -60,4 +60,3 @@ int main(int argc, char *argv[]) {
 
     return 0; // Exit successfully
 }
-
