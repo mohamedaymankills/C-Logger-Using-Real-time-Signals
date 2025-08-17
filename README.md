@@ -6,6 +6,7 @@
 
 This project implements a dynamically configured logger module in C that provides four levels of logging:
 
+
 - **LOG\_ERROR**: Logs critical error messages.
 - **LOG\_WARNING**: Logs warnings, including all error messages.
 - **LOG\_INFO**: Logs informational messages, warnings, and errors.
