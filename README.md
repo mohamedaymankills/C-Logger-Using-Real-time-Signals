@@ -90,6 +90,7 @@ To set the log level to `DEBUG` for a logger process with PID `12345`:
 ./set_log_level 12345 debug
 ```
 
+
 ---
 
 ## Supported Log Levels and Signals
